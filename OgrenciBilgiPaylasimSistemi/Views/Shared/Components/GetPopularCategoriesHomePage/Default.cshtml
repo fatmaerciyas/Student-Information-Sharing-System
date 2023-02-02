@@ -1,0 +1,9 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+<ul>
+    @foreach (var item in Model)
+    {
+    <i class="fa-solid fa-arrow-right-long" style="color:maroon; font-size:24px; margin-right:16px;"></i><li><a href="/Blog/BlogDetails/3">@item.CategoryName</a></li>
+    <br />
+    }
+</ul>

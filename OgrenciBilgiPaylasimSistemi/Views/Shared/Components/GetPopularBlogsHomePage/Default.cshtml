@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+<div class="row">
+    @*GetPopularBlogs*@
+    @foreach (var item in Model)
+    {
+
+    <div class="col-lg-6">
+        <div class="meeting-item">
+            <div class="thumb">
+
+                <a href="/Blog/BlogDetails/@item.BlogID"><img src="~/BlogThumbnails/@item.BlogThumbnailImage" ></a>
+            </div>
+            <div class="down-content">
+                <div class="date">
+                    <h6>@item.BlogCreateDate.ToString("MMMM") <span>@item.BlogCreateDate.ToString("dd")</span></h6>
+                </div>
+                <a href="meeting-details.html"><h4>@item.BlogTitle</h4></a>
+                <p>Yazar: @item.Writer.WriterName</p>
+            </div>
+        </div>
+    </div>
+    }
+</div>

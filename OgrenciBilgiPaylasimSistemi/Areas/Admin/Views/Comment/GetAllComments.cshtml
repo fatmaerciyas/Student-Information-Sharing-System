@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+@{
+    ViewData["Title"] = "GetAllComments";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <style>
+        a{
+            color:dimgray;
+        }
+    </style>
+</head>
+
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+
+            <div class="ibox-content">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Yorumlar</th>
+                            <th scope="col">Başlık</th>
+                            <th scope="col">Tarih</th>
+                            <th scope="col">Blog</th>
+                            <th scope="col">Yazar</th>
+                            <th scope="col">Yorum</th>
+                            <th scope="col">Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th><a href="/Blog/BlogDetails/@item.Blog.BlogID" class="btn btn-primary">Detay</a></th>
+                                <td ><a href="/Blog/BlogDetails/@item.Blog.BlogID">@item.CommentTitle</a></td>
+                                <td><a href="/Blog/BlogDetails/@item.Blog.BlogID">@item.CommentCreateDate</a></td>
+                                <td><a href="/Blog/BlogDetails/@item.Blog.BlogID">@item.Blog.BlogTitle</a>  </td>
+                                <td><a href="/Writer/WriterProfile/@item.WriterID">@item.Writer.WriterName</a></td>
+                                <td><a href="/Blog/BlogDetails/@item.Blog.BlogID">@item.CommentContent</a></td>
+                                <td><a class="btn btn-danger" href="/Admin/Comment/DeleteComment/@item.CommentID">Sil</a></td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

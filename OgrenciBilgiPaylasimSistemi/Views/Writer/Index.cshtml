@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete
+@model List<Writer>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-lg-4">
+                <div class="contact-box">
+                    <a class="row" href="/Writer/WriterProfile/@item.WriterID">
+                        <div class="col-4">
+                            <div class="text-center">
+                                <img alt="image" class="rounded-circle m-t-xs img-fluid" src="@item.WriterImage">
+
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <h3><strong>@item.WriterName</strong></h3>
+                            <p><i class="fa fa-map-marker"></i> @item.WriterMail</p>
+                            <address>
+                                <strong>Yazar Hakkında</strong><br>
+                                @item.WriterAbout.Substring(0, 50)...
+                            </address>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>

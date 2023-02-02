@@ -1,0 +1,100 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "BlogsByWriter";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<link href="~/inspinia-gh-pages/css/bootstrap.min.css" rel="stylesheet">
+<script src="~/inspinia-gh-pages/js/jquery-3.1.1.min.js"></script>
+<!-- Sweet Alert -->
+<link href="~/inspinia-gh-pages/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+<!-- Sweet alert -->
+<script src="~/inspinia-gh-pages/js/plugins/sweetalert/sweetalert.min.js"></script>
+
+<link href="~/inspinia-gh-pages/css/animate.css" rel="stylesheet">
+<link href="~/inspinia-gh-pages/css/style.css" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="~/inspinia-gh-pages/font-awesome/css/font-awesome.css" rel="stylesheet">
+<title>Bloglarım</title>
+
+
+
+<div id="wrapper">
+
+
+
+    <div id="page-wrapper" class="gray-bg">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content animated fadeInUp">
+                    <ul class="notes">
+                        @foreach (var item in Model)
+                        {
+                            
+                            <li>
+
+                                <div>
+                                    <a href="/Blog/BlogDetails/@item.BlogID">
+                                        <small> @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</small>
+                                        <br /><br />
+                                        <h4>@item.BlogTitle</h4><br /><br />
+
+
+                                    </a>
+                                    <a class="btn demo3" onclick="DoAction('@item.BlogID')"><i class="fa fa-trash-o "></i></a>
+
+
+                                    <div style="width: 8px; height: 8px;  position: absolute;  ">
+                                        <a href="/Blog/EditBlog/@item.BlogID"><i class="fa fa-edit"></i> </a>
+                                    </div>
+                                </div>
+
+
+
+                            </li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script>
+
+    function DoAction(id) {
+
+        swal({
+            title: "Emin Misin?",
+            text: "Yazın silinecektir. Silinen yazılar geri döndürülemez.",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Evet, yazıyı sil!",
+            cancelButtonText: "Geri",
+            closeOnConfirm: false
+        }, function () {
+            swal("Silindi!", "Yazı silindi.", "success");
+
+            window.location.href = "/Blog/DeleteBlog/" + id;
+
+
+
+        })
+    }
+
+
+
+
+
+</script>

@@ -1,0 +1,81 @@
+﻿
+@model EntityLayer.Concrete.Blog
+
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+
+<body >
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-10">
+                <div class="ibox">
+                    <div class="ibox-content">
+                      
+
+                        <div class="col-lg-12">
+
+                            <img src="~/BlogThumbnails/@Model.BlogThumbnailImage" style="border-radius:10px" class="card-img-top img-fluid" alt="">
+                        </div>
+                        <div class="text-center article-title">
+                            <span class="text-muted"><i class="fa fa-clock-o"></i> @(((DateTime)Model.BlogCreateDate).ToString("dd-MMM-yyyy"))</span>
+                            <h1>
+                                @Model.BlogTitle
+                            </h1>
+                            <a href="/Writer/WriterProfile/@Model.Writer.WriterID" style="color:dimgrey">@Model.Writer.WriterName</a>
+
+                        </div>
+
+                        <div id="log" class="article">
+                            @Html.Raw(Model.BlogContent)
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                @*<button onclick="window.location.href = '/Like/AddLike'" class="btn btn-outline btn-danger  dim " type="button">Beğen<i class="fa fa-heart"></i></button>*@
+
+                                <button class="btn btn-outline btn-warning dim" type="button" data-toggle="modal" data-target="#Modal1"><i class="fa fa-comment">Yorum Yap</i></button>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class=" text-right">
+
+                                    <div> <i class="fa fa-comments-o"> </i> @ViewBag.countComments Yorum </div>
+                                    @*<i class="fa fa-eye"> </i> 0 Beğeni*@
+                                </div>
+                            </div>
+                        </div>
+                        <br />&nbsp;<br />
+                        <br />&nbsp;<br />
+                        <br />&nbsp;<br />
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <h2>Yorumlar:</h2>
+                                @await Component.InvokeAsync("CommentListByBlog", new { id = ViewBag.id })
+
+                            </div>
+                            <button class="btn btn-outline btn-primary dim" type="button" data-toggle="modal" data-target="#Modal1">Yorum Yap!</button>
+                            <div class="modal" id="Modal1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title">Yorum Yap!</h3>
+                                        </div>
+                                        @Html.Partial("~/Views/Comment/AddComment.cshtml", Model)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>

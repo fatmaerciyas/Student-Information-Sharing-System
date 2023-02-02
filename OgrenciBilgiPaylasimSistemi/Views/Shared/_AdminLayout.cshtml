@@ -1,0 +1,97 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/inspinia-gh-pages/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/inspinia-gh-pages/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/inspinia-gh-pages/css/animate.css" rel="stylesheet">
+    <link href="~/inspinia-gh-pages/css/style.css" rel="stylesheet">
+</head>
+<body class="">
+
+    <div id="wrapper">
+       
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img style="width:70px; height:70px;" alt="image" class="rounded-circle" src="~/inspinia-gh-pages/img/indir.png" />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold">Admin</span>
+                                <span class="text-muted text-xs block">obs admin giriş <b class="caret"></b></span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="dropdown-item" href="/Writer/EditWriter"></a></li>
+                                <li><a class="dropdown-item" href="/Account/LogOut">Çıkış Yap</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            OBS
+                        </div>
+                    </li>
+                   
+                    <li>
+                        <a href="/Admin/Blog/GetAllBlogs"><i class="fa fa-th"></i> <span class="nav-label">Bloglar</span> </a>
+
+                    </li>
+
+                    <li>
+                        <a href="/Admin/Writer/GetAllWriters"><i class="fa fa-plus-square-o"></i><span class="nav-label">Yazarlar</span></a>
+
+                    </li>
+                   
+                    <li>
+                        <a href="/Admin/Comment/GetAllComments"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Yorumlar</span></a>
+
+                    </li>
+
+                    <li>
+                        <a href="/Account/LogOut"><i class="fa fa-sign-out"></i> <span class="nav-label">Çıkış Yap</span></a>
+
+                    </li>
+
+
+
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            @await Html.PartialAsync("~/Views/Blog/PartialGetBlogsBySearch.cshtml")
+
+
+
+
+            <div class="wrapper wrapper-content">
+                @RenderBody()
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="~/inspinia-gh-pages/js/jquery-3.1.1.min.js"></script>
+    <script src="~/inspinia-gh-pages/js/popper.min.js"></script>
+    <script src="~/inspinia-gh-pages/js/bootstrap.js"></script>
+    <script src="~/inspinia-gh-pages/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/inspinia-gh-pages/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/inspinia-gh-pages/js/inspinia.js"></script>
+    <script src="~/inspinia-gh-pages/js/plugins/pace/pace.min.js"></script>
+
+
+</body>
+</html>

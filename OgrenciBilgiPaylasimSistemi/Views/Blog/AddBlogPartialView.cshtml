@@ -1,0 +1,45 @@
+﻿@model string
+<!-- Sweet Alert -->
+<link href="~/inspinia-gh-pages/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+<link href="~/inspinia-gh-pages/css/animate.css" rel="stylesheet">
+<link href="~/inspinia-gh-pages/css/style.css" rel="stylesheet">
+<script src="~/inspinia-gh-pages/js/jquery-3.1.1.min.js"></script>
+<!-- Sweet alert -->
+<script src="~/inspinia-gh-pages/js/plugins/sweetalert/sweetalert.min.js"></script>
+
+<form method="post" action="/Blog/AddBlog">
+    <div class="modal-body">
+        <input class="form-control" type="text" name="BlogTitle" placeholder="Blog Başlığı" />
+        <br />
+        @*Bunu daha sonra session ile cekecegiz*@
+        <input class="form-control" type="text" name="WriterID" value="1" placeholder="Yazar ıd" />
+        <input class="form-control" type="text" name="CategoryID" value="1" placeholder="Yazar ıd" />
+        <input class="form-control" type="text" name="BlogThumbnail" value="NULL" placeholder="Thumbnail" />
+        <input class="form-control" type="text" name="BlogThumbnail" value="NULL" placeholder="Thumbnail" />
+        <input class="form-control" type="text" name="BlogContent" value=" @Model" placeholder="Thumbnail" />
+
+
+
+        <div class="modal-footer"><button class="btn demo2 btn-outline submit btn-warning dim" type="submit">Yorumu Yayınla</button></div>
+
+    </div>
+</form>
+
+
+
+<script>
+
+    $(document).ready(function () {
+        $('.demo2').click(function () {
+            swal({
+                title: "Yorumun Yayınlandı!",
+                text: "Yorumunuz yayınlanmıştır.",
+                type: "success",
+
+            });
+        });
+    });
+
+</script>
+

@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+@foreach (var item in Model)
+{
+    <div class="social-feed-box">
+
+        <div class="float-right social-action dropdown">
+
+
+        </div>
+        <div class="social-avatar">
+            <a href="/Blog/BlogDetails/@item.BlogID" class="float-left">
+                <strong>@item.BlogTitle</strong>
+            </a>
+
+            <br />
+            <small class="text-muted">@item.BlogCreateDate</small>
+        </div>
+        <a href="/Blog/BlogDetails/@item.BlogID">
+            <div class="social-body">
+                <img src="~/BlogThumbnails/@item.BlogThumbnailImage" class="img-fluid" style="width:700px;">
+
+
+            </div>
+        </a>
+ 
+
+    </div>
+
+
+}

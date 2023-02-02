@@ -1,0 +1,89 @@
+﻿@using EntityLayer.Concrete
+@model List<Writer>
+@{
+    ViewData["Title"] = "GetAllWriters";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<head>
+    <title>Yazarlar</title>
+</head>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInUp">
+
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Yazarlar</h5>
+
+                </div>
+                <div class="ibox-content">
+
+
+                    <div class="project-list">
+
+                        <table class="table table-hover">
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="project-people">
+                                            <a href="/Writer/WriterProfile/@item.WriterID"><img alt="image" class="rounded-circle" style="width:55px; height:55px;" src="@item.WriterImage"></a>
+
+                                        </td>
+                                        <td class="project-title">
+                                            <a href="/Writer/WriterProfile/@item.WriterID">@item.WriterName</a>
+                                            <br />
+                                            <small>@item.WriterMail</small>
+                                        
+                                        @{ if (item.WriterStatus == true)
+                                            {
+                                                <td class="project-status">
+                                                    <span class="label label-primary">Aktif</span>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td class="project-status">
+                                                    <span class="label label-danger">Pasif</span>
+                                                </td>
+                                            }
+                                        }
+                                        <td class="project-actions">
+                                            <a href="/Writer/WriterProfile/@item.WriterID" class="btn btn-warning "><i class="fa fa-folder"></i> Profile Git </a>
+
+                                        </td>
+                                        <td class="project-actions">
+                                            <a href="/Writer/EditWriter/@item.WriterID" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Düzenle </a>
+
+                                        </td>
+                                        @{ if (item.WriterStatus == true)
+                                            {
+
+                                                <td class="project-actions">
+                                                    <a href="/Admin/Writer/UpdateWriter/@item.WriterID" class="btn btn-danger btn-sm"><i class="fa fa-close"></i> Pasif Yap </a>
+
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td class="project-actions">
+                                                    <a href="/Admin/Writer/UpdateWriter/@item.WriterID" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Aktif Yap </a>
+
+                                                </td>
+                                            }
+                                        }
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

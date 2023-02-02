@@ -1,0 +1,16 @@
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\bin\Debug\net5.0\EntityLayer.dll
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+C:\Users\fatma\source\repos\OgrenciBilgiPaylasimSistemi\BusinessLayer\bin\Debug\net5.0\EntityLayer.pdb

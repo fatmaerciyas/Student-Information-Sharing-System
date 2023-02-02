@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+<div class="col-lg-6">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Popüler Yazarlar</h5>
+            <div class="ibox-tools">
+                <span class="label label-warning-light float-right">Yazar Listesi</span>
+            </div>
+        </div>
+        <div class="ibox-content">
+
+            <div>
+                <div class="feed-activity-list">
+                    @foreach (var item in Model)
+                    {
+                        <div class="feed-element">
+                            <a class="float-left" href="/Writer/WriterProfile/@item.WriterID">
+                                <img alt="image" class="rounded-circle" src="@item.Writer.WriterImage">
+                            </a>
+                            <div class="media-body ">
+                                <small class="float-right">@item.Writer.WriterMail</small>
+                                <a href="/Writer/WriterProfile/@item.WriterID" style="color:dimgrey"><strong>@item.Writer.WriterName</strong></a>  <br>
+                                <small class="text-muted">@item.Writer.WriterAbout.Substring(0, 30)...</small>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>

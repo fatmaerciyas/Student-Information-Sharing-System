@@ -1,0 +1,39 @@
+﻿
+@using EntityLayer.Concrete
+@model IEnumerable<Blog>
+
+<div class="ibox ">
+    <div class="ibox-title">
+        <h5>Popüler Bloglar</h5>
+        <div class="ibox-tools">
+            <a class="collapse-link">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="close-link">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+
+</div>
+    @foreach (var item in Model)
+    {
+        <div>
+            <div class="ibox-content">
+                <div class="feed-activity-list">
+                    <a href="/Blog/BlogDetails/@item.BlogID">
+                        <div class="feed-element">
+                            <div>
+                                <small class="float-right text-navy">@item.Category.CategoryName</small>
+                                <strong>@item.BlogTitle</strong>
+                                <div style="color:dimgrey">Yazar: @item.Writer.WriterName</div>
+                                <small style="color:dimgrey" class="text-muted">@item.BlogCreateDate</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

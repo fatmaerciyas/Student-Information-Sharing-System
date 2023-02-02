@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.Writer 
+@{
+    ViewData["Title"] = "WriterProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row animated fadeInRight">
+        <div class="col-md-4">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Profil Detayı</h5>
+                </div>
+                <div>
+                    <div class="ibox-content no-padding border-left-right">
+                        <img alt="image" class="img-fluid" src="@Model.WriterImage">
+                    </div>
+                    <div class="ibox-content profile-content">
+                        <h4><strong>@Model.WriterName</strong></h4>
+                        <p><i class="fa fa-map-marker"></i> @Model.WriterMail</p>
+                        <h5>
+                            Hakkımda
+                        </h5>
+                        <p>
+                            @Model.WriterAbout
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+
+            @await Component.InvokeAsync("BlogsByWriterProfile", new { id = ViewBag.writerID })
+
+        </div>
+    </div>
+</div>
+

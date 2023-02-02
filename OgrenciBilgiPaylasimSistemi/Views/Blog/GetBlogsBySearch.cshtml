@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+@{
+    ViewData["Title"] = "GetBlogsBySearch";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-content">
+                    <h2>
+                        @ViewBag.blogCount adet sonuç bulundu
+                    </h2>
+                    @foreach (var item in Model)
+                    {<div class="hr-line-dashed"></div>
+                        <div class="search-result">
+                            <h3><a href="/Blog/BlogDetails/@item.BlogID">@item.BlogTitle</a></h3>
+                            <a href="/Blog/BlogDetails/@item.BlogID" class="search-link">@item.BlogCreateDate</a>
+                          
+                        </div>
+
+                    }
+
+         
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

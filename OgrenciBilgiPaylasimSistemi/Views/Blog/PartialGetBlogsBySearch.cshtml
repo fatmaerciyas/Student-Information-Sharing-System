@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+<div class="row border-bottom">
+    <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search"  action="/Blog/GetBlogsBySearch" method="post" class="navbar-form-custom">
+                <div class="form-group">
+                    <input type="text" placeholder="Ara..." class="form-control" name="search">
+                </div>
+            </form>
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+            <li>
+                <span class="m-r-sm text-muted welcome-message">Öğrenci Bilgi Paylaşım Sistemine Hoşgeldiniz</span>
+            </li>
+
+
+            <li>
+                <a href="/Account/LogOut">
+                    <i class="fa fa-sign-out"></i> Çıkış Yap
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+</div>

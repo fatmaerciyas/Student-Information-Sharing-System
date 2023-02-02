@@ -1,0 +1,86 @@
+﻿
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.Blog>
+
+@{
+    ViewData["Title"] = "GetAllBlogs";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<style>
+    .product-image {
+        width: 100%;
+        height: 30vh; /*windows hightı kaplasın diyorsun*/
+        margin: 0 auto;
+        background: no-repeat fixed top;
+        background-size: cover;
+    }
+</style>
+
+<div class="row border-bottom">
+
+</div>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Yazılar</h2>
+
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<table class="table table-bordered">
+    <div class="wrapper wrapper-content  animated fadeInRight blog">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-image">
+                                <a href="/Blog/BlogDetails/@item.BlogID" class="product-image">
+                                    <img src="~/BlogThumbnails/@item.BlogThumbnailImage" class="card-img-top img-fluid" alt="">
+                                </a>
+                            </div>
+
+
+                            <div class="product-desc">
+                                <span class="product-price">
+                                    @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))
+                                </span>
+                                <small class="text-muted">@item.Writer.WriterName</small>
+                                <a href="/Blog/BlogDetails/@item.BlogID" class="product-name">  @item.BlogTitle</a>
+                                <div class="small m-t-xs">
+                                    @*@item.BlogContent.Substring(0, 100)...*@
+                                </div>
+
+                                <div class="m-t text-righ">
+
+                                    <a href="/Blog/BlogDetails/@item.BlogID" class="btn btn-xs btn-outline btn-primary">Devamını Oku... <i class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                                <div>
+                                    <span class="text-left">
+                                        <a  href="/Admin/Blog/DeleteBlogs/@item.BlogID" onclick="return confirm('Seçilen yazıyı silmek istediğinize emin misiniz?');" class="btn-sm btn-danger" ><i class="fa fa-trash">Sil</i></a>
+                                    </span>
+                                    <span class="text-right">
+                                        <a href="/Blog/EditBlog/@item.BlogID"  class="btn-sm btn-warning"  ><i class="fa fa-pencil">Düzenle</i></a>
+                                    </span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <br />
+    </div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+
+</table>

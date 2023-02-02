@@ -1,0 +1,50 @@
+﻿
+@model EntityLayer.Concrete.Blog
+<!-- Sweet Alert -->
+<link href="~/inspinia-gh-pages/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+<link href="~/inspinia-gh-pages/css/animate.css" rel="stylesheet">
+<link href="~/inspinia-gh-pages/css/style.css" rel="stylesheet">
+<script src="~/inspinia-gh-pages/js/jquery-3.1.1.min.js"></script>
+<!-- Sweet alert -->
+<script src="~/inspinia-gh-pages/js/plugins/sweetalert/sweetalert.min.js"></script>
+
+<form method="post" action="/Comment/AddComment/@Model.BlogID">
+    <div class="modal-body">
+       
+        <br />
+
+       
+        @if (Model.BlogID.ToString() != null)
+        {
+            <input class="form-control" type="hidden" name="BlogID" value="@Model.BlogID" />
+
+        }
+
+
+        <br />
+        <input class="form-control" type="text" name="CommentTitle" placeholder="Yorum Başlığı" />
+        <br />
+        <textarea rows="10" class="form-control" type="text" name="CommentContent" placeholder="Yorumunuz..."></textarea>
+        <br />
+        <div class="modal-footer"><button class="btn demo2 btn-outline submit btn-warning dim" type="submit">Yorumu Yayınla</button></div>
+
+    </div>
+</form>
+
+
+
+<script>
+
+    $(document).ready(function () {
+        $('.demo2').click(function () {
+            swal({
+                title: "Yorumun Yayınlandı!",
+                text: "Yorumunuz yayınlanmıştır.",
+                type: "success",
+              
+            });
+        });
+    });
+
+</script>
